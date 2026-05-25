@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAY MEHTA — MBBS Student & Tech Hobbyist Portfolio</title>
+    <meta name="description"
+        content="Portfolio of a final-year MBBS medical student showcasing clinical experience alongside practical web projects built for fun.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header / Navigation Bar -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo-box">
+                🩺 AJAY MEHTA<span class="accent">.</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#qualifications" class="nav-link">Education</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#hobbies" class="nav-link">Hobbies</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Perspective Switching Segmented Control (Desktop) -->
+            <div class="mode-switcher desktop-switcher">
+                <button class="mode-btn active-mode" id="btn-dual" onclick="switchMode('dual')"
+                    title="Show medical and coding hobbies side-by-side">
+                    <i class="fa-solid fa-layer-group"></i> Dual View
+                </button>
+                <button class="mode-btn" id="btn-clinician" onclick="switchMode('clinician')"
+                    title="Highlight clinical rotations & medical projects">
+                    <i class="fa-solid fa-stethoscope"></i> Clinical
+                </button>
+                <button class="mode-btn" id="btn-hobbyist" onclick="switchMode('hobbyist')"
+                    title="Highlight coding hobbies & daily utilities">
+                    <i class="fa-solid fa-code"></i> Hobbyist
+                </button>
+            </div>
+
+            <!-- Hamburger Menu Button (Mobile) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Slide-down Navigation -->
+        <div class="mobile-menu" id="mobile-menu">
+            <nav class="mobile-nav-links">
+                <a href="#hero" class="mobile-nav-link" onclick="toggleMobileMenu()">Home</a>
+                <a href="#qualifications" class="mobile-nav-link" onclick="toggleMobileMenu()">Education</a>
+                <a href="#projects" class="mobile-nav-link" onclick="toggleMobileMenu()">Projects</a>
+                <a href="#hobbies" class="mobile-nav-link" onclick="toggleMobileMenu()">Hobbies</a>
+                <a href="#contact" class="mobile-nav-link" onclick="toggleMobileMenu()">Contact</a>
+            </nav>
+            <div class="mobile-mode-switcher-container">
+                <span class="mode-label">Perspectives</span>
+                <div class="mode-switcher mobile-switcher">
+                    <button class="mode-btn active-mode" id="m-btn-dual"
+                        onclick="switchMode('dual'); toggleMobileMenu();"
+                        title="Show medical and coding hobbies side-by-side">
+                        <i class="fa-solid fa-layer-group"></i> Dual View
+                    </button>
+                    <button class="mode-btn" id="m-btn-clinician" onclick="switchMode('clinician'); toggleMobileMenu();"
+                        title="Highlight clinical rotations & medical projects">
+                        <i class="fa-solid fa-stethoscope"></i> Clinical
+                    </button>
+                    <button class="mode-btn" id="m-btn-hobbyist" onclick="switchMode('hobbyist'); toggleMobileMenu();"
+                        title="Highlight coding hobbies & daily utilities">
+                        <i class="fa-solid fa-code"></i> Hobbyist
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <div class="hero-tagline">Clinical Journey &amp; Side Projects</div>
+                <h1 class="hero-title">Medical Student &amp; <span class="highlight">Tech Hobbyist</span></h1>
+                <p class="hero-desc">
+                    Currently navigating my final year of MBBS, learning the art of clinical diagnosis and patient care.
+                    In my spare time, I enjoy building simple web utilities for fun to solve real ward challenges and
+                    personal needs.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn-filled">
+                        <i class="fa-solid fa-folder-open"></i> Explore Projects
+                    </a>
+                    <a href="#contact" class="btn-outlined">
+                        <i class="fa-solid fa-terminal"></i> Interactive Console
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="avatar-wrapper">
+                    <div class="avatar-bg-glow"></div>
+                    <div class="avatar-graphics">
+                        <span class="avatar-art">🩺</span>
+                        <div class="avatar-code-overlay">
+                            <span class="comment">// Medical + Tech Hobby</span><br>
+                            status = "Final Year MBBS";<br>
+                            hobbies = ["Sketches", "Code"];
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualifications & Education Timeline Section -->
+    <section id="qualifications">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Milestones</span>
+                <h2 class="section-title">Educational &amp; Clinical Journey <span class="sub">/ Roadmap</span></h2>
+            </div>
+
+            <div class="timeline-container">
+
+                <!-- Primary Education -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card hobby-timeline">
+                        <div class="timeline-meta">
+                            <span class="timeline-date">Foundation</span>
+                            <span class="timeline-badge">Primary Schooling</span>
+                        </div>
+                        <h3 class="timeline-title">Saraswati Shishu Vidya Mandir</h3>
+                        <p class="timeline-institution">Early Education &amp; Discipline</p>
+                        <p class="timeline-desc">
+                            Admitted for primary education. Built a strong academic foundation, moral values, and early
+                            interest in sketching and science.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Secondary Education -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card hobby-timeline">
+                        <div class="timeline-meta">
+                            <span class="timeline-date">Class 10th (2020)</span>
+                            <span class="timeline-badge">CBSE Board</span>
+                        </div>
+                        <h3 class="timeline-title">Jawahar Navodaya Vidyalaya, Palamu</h3>
+                        <p class="timeline-institution">Secondary Education</p>
+                        <p class="timeline-desc">
+                            Passed 10th-grade board examination with stellar results in a competitive residential school
+                            environment, fostering independence and peer learning.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Higher Secondary & NEET -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card neet-highlight medical-timeline">
+                        <div class="timeline-meta">
+                            <span class="timeline-date">Competitive (2022)</span>
+                            <span class="timeline-badge">Score: 613 Marks</span>
+                        </div>
+                        <h3 class="timeline-title">NEET-UG &amp; 12th Boards Clearance</h3>
+                        <p class="timeline-institution">Cleared on 1st Attempt</p>
+                        <p class="timeline-desc">
+                            Successfully cleared the highly competitive National Eligibility cum Entrance Test (NEET) in
+                            my first attempt, scoring 613 marks, while simultaneously clearing my 12th-grade board
+                            exams. Securing admission to MBBS.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- MBBS Final Year -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card medical-timeline">
+                        <div class="timeline-meta">
+                            <span class="timeline-date">2022 - Present</span>
+                            <span class="timeline-badge">Current Stage</span>
+                        </div>
+                        <h3 class="timeline-title">Final-Year MBBS Student</h3>
+                        <p class="timeline-institution">Clinical Postings &amp; Patient Care</p>
+                        <p class="timeline-desc">
+                            Acquiring clinical experience through final-year ward rotations including Internal Medicine,
+                            General Surgery, Pediatrics, and Obstetrics &amp; Gynecology. Applying clinical theory to
+                            real bedside case histories.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Showcase Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Showcase</span>
+                <h2 class="section-title">Web Utilities Built for Fun <span class="sub">/ Practical Solutions</span>
+                </h2>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- Project 1: Ward Companion -->
+                <div class="project-card medical-proj">
+                    <div>
+                        <div class="project-header">
+                            <div class="project-icon">🩺</div>
+                            <div class="project-links">
+                                <a href="../ward/" target="_blank" class="project-link-icon"
+                                    title="Local Source Code"><i class="fa-solid fa-code"></i></a>
+                                <a href="https://ward-companion.pages.dev" target="_blank" class="project-link-icon"
+                                    title="Live Website"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">
+                            Ward Companion
+                            <span class="project-utility-tag">Clinical Utility</span>
+                        </h3>
+                        <p class="project-desc">
+                            An offline-capable clinical toolkit built to support interns, residents, and medical
+                            students at the point of care, providing answers within seconds during ward rounds or
+                            emergency procedures.
+                        </p>
+
+                        <div class="project-mechanism">
+                            <div class="project-mechanism-title">
+                                <i class="fa-solid fa-gears"></i> Simple Mechanics
+                            </div>
+                            <p class="project-mechanism-text">
+                                Operates entirely as a Single-Page Application (SPA) with local routing. Caches
+                                references and runs fully offline using Service Workers, keeping clinical calculators,
+                                reference range tables, and case scripts accessible in hospitals without Wi-Fi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5/CSS3</span>
+                        <span class="tech-tag">Vanilla JS</span>
+                        <span class="tech-tag">Service Worker PWA</span>
+                        <span class="tech-tag">jsPDF API</span>
+                        <span class="tech-tag deployment-tag">ward-companion.pages.dev</span>
+                    </div>
+                </div>
+
+                <!-- Project 2: Splitway -->
+                <div class="project-card hobby-proj">
+                    <div>
+                        <div class="project-header">
+                            <div class="project-icon">💸</div>
+                            <div class="project-links">
+                                <a href="../splitaway/" target="_blank" class="project-link-icon"
+                                    title="Local Source Code"><i class="fa-solid fa-code"></i></a>
+                                <a href="https://splitway.pages.dev" target="_blank" class="project-link-icon"
+                                    title="Live Website"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">
+                            Splitway
+                            <span class="project-utility-tag">Expense Tracker</span>
+                        </h3>
+                        <p class="project-desc">
+                            A lightweight expense-sharing utility designed to split group costs during trips or shared
+                            accommodation, recalculating individual shares and minimizing transactions.
+                        </p>
+
+                        <div class="project-mechanism">
+                            <div class="project-mechanism-title">
+                                <i class="fa-solid fa-gears"></i> Simple Mechanics
+                            </div>
+                            <p class="project-mechanism-text">
+                                Stores expense records locally in browser memory for offline capability, syncing to a
+                                Supabase database when connection returns. Implements a greedy debt-minimization
+                                algorithm to recommend simple cash settlements.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">Vanilla JS</span>
+                        <span class="tech-tag">Supabase DB/Auth</span>
+                        <span class="tech-tag">Local Storage Sync</span>
+                        <span class="tech-tag">Vanilla Tilt</span>
+                        <span class="tech-tag deployment-tag">splitway.pages.dev</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: Guess the Case (doctoraj.org) -->
+                <div class="project-card medical-proj">
+                    <div>
+                        <div class="project-header">
+                            <div class="project-icon">🎮</div>
+                            <div class="project-links">
+                                <a href="../guessthedx/" target="_blank" class="project-link-icon"
+                                    title="Local Source Code"><i class="fa-solid fa-code"></i></a>
+                                <a href="https://guessthecase.pages.dev" target="_blank" class="project-link-icon"
+                                    title="Live Website"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">
+                            Guess the Case (doctoraj.org)
+                            <span class="project-utility-tag">Medical Game</span>
+                        </h3>
+                        <p class="project-desc">
+                            A daily diagnostic challenge game where medical students guess clinical diagnoses based on
+                            progressive diagnostic clues like patient history, symptoms, and physical signs.
+                        </p>
+
+                        <div class="project-mechanism">
+                            <div class="project-mechanism-title">
+                                <i class="fa-solid fa-gears"></i> Simple Mechanics
+                            </div>
+                            <p class="project-mechanism-text">
+                                Loads a daily case puzzle and tracks game state (guesses, streaks, and distributions)
+                                using local cookies and localStorage. Connects to serverless backend endpoints to fetch
+                                percentile rankings and explain wrong choices.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5/CSS3</span>
+                        <span class="tech-tag">Vanilla JS</span>
+                        <span class="tech-tag">Cookies/LocalStorage API</span>
+                        <span class="tech-tag">Serverless API</span>
+                        <span class="tech-tag deployment-tag">guessthecase.pages.dev</span>
+                    </div>
+                </div>
+
+                <!-- Project 4: AJ Medical Archive -->
+                <div class="project-card medical-proj">
+                    <div>
+                        <div class="project-header">
+                            <div class="project-icon">📚</div>
+                            <div class="project-links">
+                                <a href="../aj-mbbs-archive-static/" target="_blank" class="project-link-icon"
+                                    title="Local Source Code"><i class="fa-solid fa-code"></i></a>
+                                <a href="https://ajmbbsarchive.pages.dev" target="_blank" class="project-link-icon"
+                                    title="Live Website"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">
+                            AJ Medical Archive
+                            <span class="project-utility-tag">Study Portal</span>
+                        </h3>
+                        <p class="project-desc">
+                            A structured static repository and digital catalog mapping high-yield study portals and
+                            preparation notes for MBBS subjects and PG coaching materials.
+                        </p>
+
+                        <div class="project-mechanism">
+                            <div class="project-mechanism-title">
+                                <i class="fa-solid fa-gears"></i> Simple Mechanics
+                            </div>
+                            <p class="project-mechanism-text">
+                                Uses JSON data arrays to build searchable indices of flashcards and portal folders,
+                                creating a fast, keyboard-navigable static directory that links directly to study
+                                folders.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5/CSS3</span>
+                        <span class="tech-tag">Vanilla JS</span>
+                        <span class="tech-tag">JSON Indexing</span>
+                        <span class="tech-tag deployment-tag">ajmbbsarchive.pages.dev</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Hobbies & Interests Bento Grid Section -->
+    <section id="hobbies">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Out of Wards</span>
+                <h2 class="section-title">Hobbies &amp; Personal Philosophy <span class="sub">/ Creative Outlets</span>
+                </h2>
+            </div>
+
+            <div class="bento-grid">
+
+                <!-- Sketching (Anatomical Heart generated image) -->
+                <div class="bento-item bento-sketch">
+                    <span class="section-label" style="font-size: 11px;">Creative Outlet</span>
+                    <h3 style="font-size: 18px; font-weight: 600; margin-top: 4px;">Anatomical Sketching</h3>
+                    <p style="font-size: 12px; color: var(--color-cadet-gray); margin-top: 4px;">Illustrating cardiac
+                        anatomy and clinical patterns</p>
+                    <div class="sketch-view">
+                        <img src="assets/clinical_sketch.png" alt="Cardiovascular anatomical sketch by Mehta">
+                        <div class="sketch-overlay-label">Cardio Sketch #12</div>
+                    </div>
+                </div>
+
+                <!-- Reading List -->
+                <div class="bento-item bento-reading" style="overflow-y: auto;">
+                    <span class="section-label" style="font-size: 11px;">Literary Journey</span>
+                    <h3 style="font-size: 18px; font-weight: 600; margin-top: 4px; margin-bottom: var(--spacing-8);">
+                        Completed Reads</h3>
+
+                    <div class="reading-widget"
+                        style="margin-top: 8px; display: flex; flex-direction: column; gap: 8px;">
+                        <div class="book-item"
+                            style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--surface-deep-space-gray); padding-bottom: 6px;">
+                            <div class="book-info">
+                                <span class="book-title" style="font-size: 13px; font-weight: 600;">Godan &amp;
+                                    Nirmala</span>
+                                <span class="book-author"
+                                    style="font-size: 11px; color: var(--color-cadet-gray); display: block;">Munshi
+                                    Premchand</span>
+                            </div>
+                            <span class="book-status-badge"
+                                style="font-size: 11px; color: var(--color-electric-cyan);"><i
+                                    class="fa-solid fa-circle-check"></i> Read</span>
+                        </div>
+
+                        <div class="book-item"
+                            style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--surface-deep-space-gray); padding-bottom: 6px;">
+                            <div class="book-info">
+                                <span class="book-title" style="font-size: 13px; font-weight: 600;">Gunaho Ka
+                                    Devta</span>
+                                <span class="book-author"
+                                    style="font-size: 11px; color: var(--color-cadet-gray); display: block;">Dharamvir
+                                    Bharati</span>
+                            </div>
+                            <span class="book-status-badge"
+                                style="font-size: 11px; color: var(--color-electric-cyan);"><i
+                                    class="fa-solid fa-circle-check"></i> Read</span>
+                        </div>
+
+                        <div class="book-item"
+                            style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--surface-deep-space-gray); padding-bottom: 6px;">
+                            <div class="book-info">
+                                <span class="book-title" style="font-size: 13px; font-weight: 600;">Deewar Mein Ek
+                                    Khidki...</span>
+                                <span class="book-author"
+                                    style="font-size: 11px; color: var(--color-cadet-gray); display: block;">Vinod Kumar
+                                    Shukla</span>
+                            </div>
+                            <span class="book-status-badge"
+                                style="font-size: 11px; color: var(--color-electric-cyan);"><i
+                                    class="fa-solid fa-circle-check"></i> Read</span>
+                        </div>
+
+                        <div class="book-item"
+                            style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--surface-deep-space-gray); padding-bottom: 6px;">
+                            <div class="book-info">
+                                <span class="book-title" style="font-size: 13px; font-weight: 600;">Metamorphosis &amp;
+                                    White Nights</span>
+                                <span class="book-author"
+                                    style="font-size: 11px; color: var(--color-cadet-gray); display: block;">Franz Kafka
+                                    / Dostoevsky</span>
+                            </div>
+                            <span class="book-status-badge"
+                                style="font-size: 11px; color: var(--color-electric-cyan);"><i
+                                    class="fa-solid fa-circle-check"></i> Read</span>
+                        </div>
+
+                        <div class="book-item"
+                            style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 4px;">
+                            <div class="book-info">
+                                <span class="book-title" style="font-size: 13px; font-weight: 600;">Ret Ki Machhali /
+                                    Detectives</span>
+                                <span class="book-author"
+                                    style="font-size: 11px; color: var(--color-cadet-gray); display: block;">R. Shah /
+                                    Col. Ranjeet Series</span>
+                            </div>
+                            <span class="book-status-badge"
+                                style="font-size: 11px; color: var(--color-electric-cyan);"><i
+                                    class="fa-solid fa-circle-check"></i> Read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Music Player Widget -->
+                <div class="bento-item bento-music">
+                    <div>
+                        <span class="section-label" style="font-size: 11px;">Acoustic Escape</span>
+                        <h3 style="font-size: 18px; font-weight: 600; margin-top: 4px;">Listening Songs</h3>
+                    </div>
+
+                    <div class="player-container">
+                        <div class="disc-wrapper">
+                            <div class="disc" id="audio-disc">
+                                <div class="disc-center"></div>
+                            </div>
+                        </div>
+
+                        <div class="song-info" style="flex-grow: 1;">
+                            <span class="song-title" id="song-title"
+                                style="font-size: 14px; font-weight: 600; display: block; color: var(--color-mercury-white);">Tum
+                                Hi Ho</span>
+                            <span class="song-artist" id="song-artist"
+                                style="font-size: 11px; color: var(--color-cadet-gray); margin-top: 2px; display: block;">Arijit
+                                Singh</span>
+
+                            <div class="player-controls" style="display: flex; gap: 8px; margin-top: 8px;">
+                                <button class="play-btn" id="audio-play-btn" onclick="toggleAudio()" title="Play/Pause">
+                                    <i class="fa-solid fa-play" id="play-icon"></i>
+                                </button>
+                                <button class="play-btn" id="audio-next-btn" onclick="nextTrack()" title="Next Song">
+                                    <i class="fa-solid fa-forward"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="visualizer-container">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+
+                <!-- Travel Aspirations Box -->
+                <div class="bento-item bento-travel">
+                    <div>
+                        <span class="section-label" style="font-size: 11px;">Future Goals</span>
+                        <h3 style="font-size: 18px; font-weight: 600; margin-top: 4px;">Travel Aspirations</h3>
+                        <p class="travel-content">
+                            Though backpacking is currently on hold due to college-year savings constraints and rigorous
+                            MBBS clinical schedules, I aspire to explore remote clinical centers, medical campsites, and
+                            cultures across the country in the future.
+                        </p>
+                    </div>
+
+                    <div class="travel-aspiration">
+                        <div class="travel-aspiration-icon">🎒</div>
+                        <div class="travel-aspiration-text">
+                            Dreaming of budget backpacking trip post-graduation rotations...
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Terminal Console Contact Section -->
+    <section id="contact" style="background-color: rgba(0, 0, 0, 0.15);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Connect</span>
+                <h2 class="section-title">Terminal Console <span class="sub">/ Get In Touch</span></h2>
+            </div>
+
+            <div class="terminal-wrapper">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <div class="terminal-btn close"></div>
+                        <div class="terminal-btn minimize"></div>
+                        <div class="terminal-btn expand"></div>
+                    </div>
+                    <div class="terminal-title-text">ajay@ward-terminal:~</div>
+                    <div style="width: 48px;"></div> <!-- balance layout -->
+                </div>
+
+                <div class="terminal-body" id="term-body">
+                    <div class="terminal-history" id="term-history">
+                        <div class="terminal-line output-line system">Welcome to AJAY's Ward Console v1.0.0.</div>
+                        <div class="terminal-line output-line system">Type 'help' to see list of available commands or
+                            click quick links below.</div>
+                    </div>
+
+                    <div class="terminal-input-container">
+                        <span class="terminal-prompt">visitor@ajay-terminal:~$</span>
+                        <input type="text" class="terminal-input" id="term-input" autocomplete="off" autofocus
+                            placeholder="Type a command...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Command Buttons -->
+            <div class="terminal-commands-hint container" style="max-width: 800px; margin-top: 16px;">
+                <span
+                    style="font-size: 12px; color: var(--color-cadet-gray); align-self: center; margin-right: 8px;">Quick
+                    Query:</span>
+                <span class="terminal-hint-tag" onclick="runCommand('help')">help</span>
+                <span class="terminal-hint-tag" onclick="runCommand('email')">email</span>
+                <span class="terminal-hint-tag" onclick="runCommand('github')">github</span>
+                <span class="terminal-hint-tag" onclick="runCommand('education')">education</span>
+                <span class="terminal-hint-tag" onclick="runCommand('hobbies')">hobbies</span>
+                <span class="terminal-hint-tag" onclick="runCommand('clear')">clear</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-rights">
+                <p>&copy; 2026 AJAY MEHTA. All rights reserved.</p>
+                <span class="credits">Built using LaunchDarkly Style Tokens (Midnight Terminal, Violet Haze)</span>
+            </div>
+
+            <div class="footer-socials">
+                <a href="mailto:mehtaajay8873@gmail.com" class="footer-social-link" title="Email"><i
+                        class="fa-solid fa-envelope"></i></a>
+                <a href="https://github.com" target="_blank" class="footer-social-link" title="GitHub"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/_ajay__mehta__/" target="_blank" class="footer-social-link"
+                    title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>
