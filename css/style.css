@@ -16,9 +16,9 @@
   --font-geist-sans: 'Geist Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Colors */
-  --color-carbon-black: #191919;
-  --color-graphite: #414042;
-  --color-deep-space-gray: #2c2c2c;
+  --color-carbon-black: #0c0b15;
+  --color-graphite: #03020d;
+  --color-deep-space-gray: #1c1a30;
   --color-mercury-white: #ffffff;
   --color-stardust-gray: #f8f8f2;
   --color-cadet-gray: #a7a9ac;
@@ -93,9 +93,9 @@
   --shadow-lg: rgba(0, 0, 0, 0.45) 0px 4px 20px 0px;
 
   /* Surfaces */
-  --surface-graphite: #414042;
-  --surface-carbon-black: #191919;
-  --surface-deep-space-gray: #2c2c2c;
+  --surface-graphite: #03020d;
+  --surface-carbon-black: #0c0b15;
+  --surface-deep-space-gray: #1c1a30;
 }
 
 /* Global Reset & Base Styling */
@@ -143,6 +143,102 @@ a:hover {
 
 section {
   padding: var(--section-gap) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ensure section elements sit on top of background glows */
+.container,
+.timeline-container,
+.projects-grid,
+.bento-grid,
+.terminal-wrapper {
+  position: relative;
+  z-index: 5;
+}
+
+/* Animated Floating Glow Spheres on sections */
+section::before, section::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.22; /* increased opacity for rich visibility on dark-purple background */
+  pointer-events: none;
+  z-index: 1;
+  animation: float-glow 20s infinite alternate ease-in-out;
+}
+
+#qualifications::before {
+  background: var(--color-launch-violet);
+  top: 5%;
+  left: -5%;
+  animation-duration: 25s;
+}
+#qualifications::after {
+  background: var(--color-electric-cyan);
+  bottom: 5%;
+  right: -5%;
+  animation-duration: 18s;
+  animation-delay: -5s;
+}
+
+#projects::before {
+  background: #a855f7; /* purple */
+  top: 10%;
+  right: -5%;
+  animation-duration: 22s;
+  animation-delay: -3s;
+}
+#projects::after {
+  background: #fcd34d; /* gold */
+  bottom: 10%;
+  left: -5%;
+  animation-duration: 28s;
+  animation-delay: -7s;
+}
+
+#hobbies::before {
+  background: #6366f1; /* indigo */
+  top: 5%;
+  left: -5%;
+  animation-duration: 20s;
+}
+#hobbies::after {
+  background: #a855f7;
+  bottom: 10%;
+  right: -5%;
+  animation-duration: 24s;
+  animation-delay: -4s;
+}
+
+#contact::before {
+  background: #6366f1;
+  top: 20%;
+  left: 20%;
+  width: 500px;
+  height: 500px;
+  filter: blur(150px);
+  opacity: 0.18; /* increased opacity for contact section */
+  animation-duration: 30s;
+}
+
+#contact::after {
+  display: none; /* Only 1 glow circle on contact is needed */
+}
+
+@keyframes float-glow {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(80px, 40px) scale(1.15);
+  }
+  100% {
+    transform: translate(-40px, -60px) scale(0.9);
+  }
 }
 
 /* Header & Navigation */
@@ -695,6 +791,19 @@ header.header-visible {
   z-index: 2;
   box-shadow: 0 0 10px var(--color-launch-violet);
   transition: all 0.3s ease;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(112, 132, 255, 0.5), 0 0 10px var(--color-launch-violet);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(112, 132, 255, 0), 0 0 10px var(--color-launch-violet);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(112, 132, 255, 0), 0 0 10px var(--color-launch-violet);
+  }
 }
 
 .timeline-item:nth-child(even) .timeline-dot {
@@ -715,7 +824,7 @@ header.header-visible {
 
 .timeline-card:hover {
   border-color: var(--color-launch-violet);
-  box-shadow: 0 10px 30px rgba(112, 132, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(112, 132, 255, 0.15), 0 0 20px rgba(112, 132, 255, 0.05);
   transform: translateY(-4px);
 }
 
@@ -973,6 +1082,7 @@ header.header-visible {
 
 .bento-item:hover {
   border-color: var(--color-launch-violet);
+  box-shadow: 0 10px 30px rgba(112, 132, 255, 0.15), 0 0 20px rgba(112, 132, 255, 0.05);
 }
 
 /* Sketch Box */
