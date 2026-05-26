@@ -113,6 +113,7 @@ html {
   font-weight: var(--font-weight-regular);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body {
@@ -1473,6 +1474,7 @@ header.header-visible {
 .terminal-prompt {
   color: var(--color-launch-violet);
   font-weight: var(--font-weight-bold);
+  white-space: nowrap;
 }
 
 .terminal-input {
@@ -1707,6 +1709,9 @@ footer {
   :root {
     --section-gap: 36px;
     --card-padding: 20px;
+  }
+  #hero {
+    overflow: hidden !important;
   }
   .nav-links, .desktop-switcher {
     display: none; /* Hide desktop nav and switcher */
