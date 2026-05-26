@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40" fill="none">
+  <defs>
+    <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#fcd34d" />
+    </linearGradient>
+  </defs>
+  <!-- AM Monogram -->
+  <path d="M 12 28 L 22 8 L 32 28 M 16 20 L 28 20" stroke="url(#logo-grad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 38 28 L 38 8 L 48 20 L 58 8 L 58 28" stroke="url(#logo-grad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Divider -->
+  <line x1="68" y1="8" x2="68" y2="28" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Subtext -->
+  <text x="76" y="23" fill="#f5f5f2" font-family="'Geist Sans', -apple-system, sans-serif" font-size="12" font-weight="600" letter-spacing="1.5">MEHTA</text>
+</svg>

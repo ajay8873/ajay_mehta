@@ -244,3 +244,83 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+// Custom Video Fade Loop Control & Header Scroll Observer
+document.addEventListener('DOMContentLoaded', () => {
+  const video = document.getElementById('hero-video');
+  if (video) {
+    video.muted = true;
+    video.playsInline = true;
+
+    video.play().then(() => {
+      startVideoFadeLoop(video);
+    }).catch(err => {
+      console.log("Auto-play blocked, playing on user click.", err);
+      const playOnInteract = () => {
+        video.play().then(() => {
+          startVideoFadeLoop(video);
+          document.removeEventListener('click', playOnInteract);
+        });
+      };
+      document.addEventListener('click', playOnInteract);
+    });
+  }
+
+  // Scroll visibility observer for portfolio sticky header
+  const header = document.querySelector('header');
+  if (header) {
+    const handleHeaderVisibility = () => {
+      // Show portfolio header only after scrolling past the hero (80% of window height)
+      if (window.scrollY > window.innerHeight * 0.8) {
+        header.classList.add('header-visible');
+      } else {
+        header.classList.remove('header-visible');
+      }
+    };
+    
+    window.addEventListener('scroll', handleHeaderVisibility);
+    handleHeaderVisibility(); // run once on load
+  }
+});
+
+function startVideoFadeLoop(video) {
+  const fadeDuration = 0.5; // seconds
+
+  function checkOpacity() {
+    if (video.paused || video.ended) {
+      requestAnimationFrame(checkOpacity);
+      return;
+    }
+
+    const cur = video.currentTime;
+    const dur = video.duration;
+    let opacity = 0;
+
+    if (dur && dur > 0) {
+      if (cur < fadeDuration) {
+        // Fade in
+        opacity = cur / fadeDuration;
+      } else if (cur > dur - fadeDuration) {
+        // Fade out
+        opacity = Math.max(0, (dur - cur) / fadeDuration);
+      } else {
+        // Full opacity
+        opacity = 1;
+      }
+    }
+    
+    video.style.opacity = opacity;
+    requestAnimationFrame(checkOpacity);
+  }
+
+  requestAnimationFrame(checkOpacity);
+
+  video.addEventListener('ended', () => {
+    video.style.opacity = '0';
+    setTimeout(() => {
+      video.currentTime = 0;
+      video.play().catch(err => console.log("Video replay interrupted:", err));
+    }, 100);
+  });
+}
+
