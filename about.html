@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Ajay Mehta | MBBS Student | Hazaribag, Jharkhand</title>
+    <meta name="description"
+        content="Learn more about Ajay Mehta, an MBBS student at Sheikh Bhikhari Medical College in Hazaribag, Jharkhand. Discover his medical training, academic interests, coding projects, and contact info.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Specific page styles for About page to fit with LaunchDarkly style tokens */
+        .about-hero {
+            padding-top: 140px;
+            padding-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: var(--spacing-48);
+            margin-top: var(--spacing-40);
+            margin-bottom: var(--spacing-64);
+        }
+        
+        .about-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-24);
+        }
+        
+        .profile-card {
+            background-color: var(--surface-carbon-black);
+            border: 1px solid var(--surface-deep-space-gray);
+            border-radius: var(--radius-cards);
+            padding: var(--card-padding);
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--color-launch-violet);
+            filter: blur(40px);
+            opacity: 0.15;
+        }
+        
+        .profile-avatar {
+            width: 160px;
+            height: 180px;
+            border-radius: 16px;
+            margin: 0 auto var(--spacing-16);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(112, 132, 255, 0.3);
+            overflow: hidden;
+            border: 2px solid var(--color-launch-violet);
+        }
+        
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 10%;
+        }
+        
+        .profile-name {
+            font-size: 24px;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .profile-title {
+            font-size: var(--text-body-sm);
+            color: var(--color-electric-cyan);
+            margin-bottom: var(--spacing-16);
+            font-family: var(--font-monofont);
+        }
+        
+        .profile-details {
+            border-top: 1px solid var(--surface-deep-space-gray);
+            padding-top: var(--spacing-16);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 14px;
+        }
+        
+        .profile-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-cadet-gray);
+        }
+        
+        .profile-detail-item i {
+            color: var(--color-launch-violet);
+            width: 16px;
+            text-align: center;
+        }
+        
+        .about-main-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-40);
+        }
+        
+        .about-section-card {
+            background-color: var(--surface-carbon-black);
+            border: 1px solid var(--surface-deep-space-gray);
+            border-radius: var(--radius-cards);
+            padding: var(--card-padding);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .about-section-title {
+            font-size: var(--text-heading-sm);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-16);
+            border-bottom: 1px solid var(--surface-deep-space-gray);
+            padding-bottom: var(--spacing-8);
+            color: var(--color-mercury-white);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .about-section-title i {
+            color: var(--color-electric-cyan);
+        }
+        
+        .about-text {
+            color: var(--color-cadet-gray);
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: var(--spacing-16);
+        }
+        
+        .about-text strong {
+            color: var(--color-mercury-white);
+        }
+        
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: var(--spacing-16);
+        }
+        
+        .interest-tag {
+            background-color: var(--surface-deep-space-gray);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 6px 14px;
+            border-radius: var(--radius-tags);
+            font-size: 13px;
+            color: var(--color-silver-mist);
+            transition: all 0.2s ease;
+        }
+        
+        .interest-tag:hover {
+            border-color: var(--color-launch-violet);
+            color: var(--color-mercury-white);
+        }
+        
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-32);
+            }
+        }
+    </style>
+</head>
+
+<body class="always-show-header">
+
+    <!-- Header / Navigation Bar -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo-box">AJAY MEHTA<span class="accent">.</span></a>
+
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#projects" class="nav-link">Projects</a>
+                <a href="index.html#hobbies" class="nav-link">Hobbies</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Hamburger Menu Button (Mobile) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Slide-down Navigation -->
+        <div class="mobile-menu" id="mobile-menu">
+            <nav class="mobile-nav-links">
+                <a href="index.html" class="mobile-nav-link" onclick="toggleMobileMenu()">Home</a>
+                <a href="index.html#projects" class="mobile-nav-link" onclick="toggleMobileMenu()">Projects</a>
+                <a href="index.html#hobbies" class="mobile-nav-link" onclick="toggleMobileMenu()">Hobbies</a>
+                <a href="index.html#contact" class="mobile-nav-link" onclick="toggleMobileMenu()">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Hero Title -->
+        <div class="about-hero">
+            <span class="section-label">Biography</span>
+            <h1 class="section-title" style="font-size: clamp(32px, 6vw, 64px);">About Ajay Mehta</h1>
+            <p style="color: var(--color-cadet-gray); font-size: 18px; max-width: 600px; margin: var(--spacing-16) auto 0;">
+                MBBS student from Hazaribag, Jharkhand, passionate about medicine, software utilities, and medical education.
+            </p>
+        </div>
+
+        <!-- Main Layout Grid -->
+        <div class="about-grid">
+            
+            <!-- Sidebar with Profile Card -->
+            <div class="about-sidebar">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <img src="assets/ajay_mehta.jpg" alt="Ajay Mehta - MBBS Student at Sheikh Bhikhari Medical College, Hazaribag, Jharkhand">
+                    </div>
+                    <h2 class="profile-name">Ajay Mehta</h2>
+                    <p class="profile-title">MBBS Student (Final-Year)</p>
+                    
+                    <div class="profile-details">
+                        <div class="profile-detail-item">
+                            <i class="fa-solid fa-user-doctor"></i>
+                            <span>Sheikh Bhikhari Medical College</span>
+                        </div>
+                        <div class="profile-detail-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Hazaribag, Jharkhand, India</span>
+                        </div>
+                        <div class="profile-detail-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="mailto:mehtaajay8873@gmail.com" style="color: var(--color-cadet-gray);">mehtaajay8873@gmail.com</a>
+                        </div>
+                        <div class="profile-detail-item">
+                            <i class="fa-brands fa-github"></i>
+                            <a href="https://github.com" target="_blank" style="color: var(--color-cadet-gray);">GitHub Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Content Area -->
+            <div class="about-main-content">
+                
+                <!-- Section 1: Academic & Medical Journey -->
+                <div class="about-section-card">
+                    <h3 class="about-section-title">
+                        <i class="fa-solid fa-stethoscope"></i>
+                        Medical Journey & Training
+                    </h3>
+                    <p class="about-text">
+                        I am a final-year <strong>MBBS student</strong> currently undergoing clinical rotations at <strong>Sheikh Bhikhari Medical College</strong> (formerly known as Hazaribagh Medical College), located in Hazaribag, Jharkhand. My medical education emphasizes hands-on patient care, clinical reasoning, and emergency case management.
+                    </p>
+                    <p class="about-text">
+                        In 2022, I cleared the competitive <strong>NEET-UG</strong> examination on my very first attempt with a score of <strong>613 marks</strong>, while simultaneously completing my Class 12th board exams. This transition from foundational school education at *Saraswati Shishu Vidya Mandir* and *Jawahar Navodaya Vidyalaya, Palamu* laid the bedrock of discipline and analytical thinking required for medicine.
+                    </p>
+                    <div class="interest-tags">
+                        <span class="interest-tag">Clinical Rotations</span>
+                        <span class="interest-tag">Emergency Care</span>
+                        <span class="interest-tag">Diagnostics</span>
+                        <span class="interest-tag">Patient History</span>
+                        <span class="interest-tag">Medical Education</span>
+                    </div>
+                </div>
+                
+                <!-- Section 2: Technology & Coding Hobbies -->
+                <div class="about-section-card">
+                    <h3 class="about-section-title">
+                        <i class="fa-solid fa-code"></i>
+                        Tech & Web Projects
+                    </h3>
+                    <p class="about-text">
+                        Beyond the clinical wards, I am a passionate tech hobbyist and software developer. I build functional web utilities and interactive applications that solve daily problems or support medical students at the point of care.
+                    </p>
+                    <p class="about-text">
+                        My primary tech stack includes <strong>JavaScript (ES6+)</strong>, <strong>HTML5/CSS3</strong>, and <strong>Supabase (DB & Auth)</strong>. I design offline-first applications utilizing browser caching (Service Workers, cookies, and LocalStorage) to keep utilities fully accessible in clinical settings where internet connectivity is often limited.
+                    </p>
+                    <div class="interest-tags">
+                        <span class="interest-tag">Vanilla JavaScript</span>
+                        <span class="interest-tag">HTML5 / CSS3</span>
+                        <span class="interest-tag">Supabase DB</span>
+                        <span class="interest-tag">Service Worker / PWA</span>
+                        <span class="interest-tag">Front-end Design</span>
+                    </div>
+                </div>
+
+                <!-- Section 3: Extracurriculars -->
+                <div class="about-section-card">
+                    <h3 class="about-section-title">
+                        <i class="fa-solid fa-book-open"></i>
+                        Hobbies & Philosophy
+                    </h3>
+                    <p class="about-text">
+                        To maintain a balanced lifestyle, I dedicate time to creative outlets such as <strong>anatomical sketching</strong>, illustrating cardiovascular and systemic organ anatomy. I am also an avid reader, having completed classic works by Munshi Premchand (*Godan*, *Nirmala*), Dharamvir Bharati (*Gunaho Ka Devta*), Vinod Kumar Shukla, Franz Kafka (*Metamorphosis*), Fyodor Dostoevsky (*White Nights*), and Kanta Bharati (*Ret Ki Machhali*).
+                    </p>
+                    <p class="about-text">
+                        When resting between postings, I enjoy listening to acoustic songs by Arijit Singh, Papon, Jagjit Singh, and Kishore Kumar, and look forward to embarking on budget backpacking journeys post-graduation.
+                    </p>
+                </div>
+                
+                <!-- Navigation Call to Action -->
+                <div style="display: flex; gap: 16px; margin-top: 10px;">
+                    <a href="index.html" class="btn-hero-secondary hero-cta-btn" style="padding: 16px 24px; font-size: 15px; border-radius: 8px;">
+                        <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Homepage
+                    </a>
+                    <a href="index.html#projects" class="btn-hero-secondary hero-cta-btn" style="padding: 16px 24px; font-size: 15px; border-radius: 8px; background: rgba(255, 255, 255, 0.05);">
+                        View My Projects <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
+                    </a>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-rights">
+                <p>&copy; 2026 AJAY MEHTA. All rights reserved.</p>
+                <span class="credits">Built using LaunchDarkly Style Tokens (Midnight Terminal, Violet Haze)</span>
+            </div>
+
+            <div class="footer-socials">
+                <a href="mailto:mehtaajay8873@gmail.com" class="footer-social-link" title="Email"><i
+                        class="fa-solid fa-envelope"></i></a>
+                <a href="https://github.com" target="_blank" class="footer-social-link" title="GitHub"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/_ajay__mehta__/" target="_blank" class="footer-social-link"
+                     title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>

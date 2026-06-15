@@ -270,6 +270,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('header');
   if (header) {
     const handleHeaderVisibility = () => {
+      // If always-show-header class is present on body, make header permanently visible
+      if (document.body.classList.contains('always-show-header')) {
+        header.classList.add('header-visible');
+        return;
+      }
       // Show portfolio header only after scrolling past the hero (80% of window height)
       if (window.scrollY > window.innerHeight * 0.8) {
         header.classList.add('header-visible');
